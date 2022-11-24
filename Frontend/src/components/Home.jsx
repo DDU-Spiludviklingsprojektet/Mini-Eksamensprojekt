@@ -2,14 +2,22 @@ import React from "react";
 import {
   MDBCarousel,
   MDBCarouselItem,
+  MDBContainer, 
+  MDBRow, 
+  MDBCol
 } from 'mdb-react-ui-kit';
 
 
 function Home() {
   return (
-    <MDBCarousel showIndicators showControls fade>
+    <MDBContainer>
+    <MDBRow>
+      <MDBCol size='md2'>
+      </MDBCol>
+      <MDBCol size='md8'>
+      <MDBCarousel showIndicators showControls fade>
       <MDBCarouselItem
-        className='w-100 d-block'
+        className='w-100 d-block square bg-primary rounded-7 my-3'
         itemId={1}
         src='https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg'
         alt='...'
@@ -19,7 +27,7 @@ function Home() {
       </MDBCarouselItem>
 
       <MDBCarouselItem
-        className='w-100 d-block'
+        className='w-100 d-block bg-primary rounded-7 my-3' 
         itemId={2}
         src='https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg'
         alt='...'
@@ -29,7 +37,7 @@ function Home() {
       </MDBCarouselItem>
 
       <MDBCarouselItem
-        className='w-100 d-block'
+        className='w-100 d-block bg-primary rounded-7 my-3'
         itemId={3}
         src='https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg'
         alt='...'
@@ -38,6 +46,12 @@ function Home() {
         <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
       </MDBCarouselItem>
     </MDBCarousel>
+      </MDBCol>
+      <MDBCol size='md2'>
+      </MDBCol>
+    </MDBRow>
+  </MDBContainer>
+    
   );
 }
 

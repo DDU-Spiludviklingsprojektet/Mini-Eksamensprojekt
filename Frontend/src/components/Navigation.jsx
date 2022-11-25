@@ -1,32 +1,35 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
+
 
 
 function Navigation() {
   return (
     <div className="navigation">
-      <nav className="navbar navbar-expand navbar-dark bg-dark">
+      <nav className="navbar navbar-expand navbar-light bg-light">
         <div className="container">
-          <NavLink className="navbar-brand" to="/">
-            MitGym
-          </NavLink>
           <div>
-            <ul className="navbar-nav ml-auto">
+            <ul className="navbar-nav">
               <li className="nav-item">
-                <NavLink className="nav-link" to="/">
-                  Home
-                  <span className="sr-only">(current)</span>
-                </NavLink>
+                <MDBIcon icon="book-open" />
               </li>
+              <li className="nav-item"  >
+                MitGym
+              </li>
+            </ul>
+          </div>
+          <div>
+            <ul className="navbar-nav ml-auto" >
               <li className="nav-item">
-                <NavLink className="nav-link" to="/Login">
+                <MDBBtn rippleColor='dark' href="/Login">
                   Login
-                </NavLink>
+                </MDBBtn>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/Signup">
+                <MDBBtn rippleColor='dark' href="/Signup" color='secondary'>
                   Signup
-                </NavLink>
+                </MDBBtn>
               </li>
             </ul>
           </div>

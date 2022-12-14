@@ -1,4 +1,4 @@
-idea/
+.idea/
 .vscode/
 node_modules/
 build/
@@ -12,4 +12,3 @@ yarn-debug.log*
 yarn-error.log*
 /.changelog
 .npm/
-.env

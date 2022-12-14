@@ -4,8 +4,8 @@ const validator = require('validator');
 module.exports.loginValidator = (data) => {
     const errors = {};
 
-    data.email = !isEmpty(data.email) ? data.email : '';
-    data.password = !isEmpty(data.password) ? data.password : '';
+    data.email = !(isEmpty(data.email)) ? data.email : '';
+    data.password = !(isEmpty(data.password)) ? data.password : '';
 
     let emailError = validator.isEmpty(data.email) ? 'Email field is required' : (!validator.isEmail(data.email) ? 'Email is invalid' : '');
     let passwordError = validator.isEmpty(data.password) ? 'Password field is required' : '';
@@ -22,10 +22,10 @@ module.exports.loginValidator = (data) => {
 module.exports.registerValidator = (data) => {
     const errors = {};
 
-    data.firstName = !isEmpty(data.firstName) ? data.firstName : '';
-    data.lastName = !isEmpty(data.lastName) ? data.lastName : '';
-    data.email = !isEmpty(data.email) ? data.email : '';
-    data.password = !isEmpty(data.password) ? data.password : '';
+    data.firstName = !(isEmpty(data.firstName)) ? data.firstName : '';
+    data.lastName = !(isEmpty(data.lastName)) ? data.lastName : '';
+    data.email = !(isEmpty(data.email)) ? data.email : '';
+    data.password = !(isEmpty(data.password)) ? data.password : '';
 
     let emailError = validator.isEmpty(data.email) ? 'Email field is required' : (!validator.isEmail(data.email) ? 'Email is invalid' : '');
     let passwordError = validator.isEmpty(data.password) ? 'Password field is required' : '';

@@ -7,7 +7,6 @@ import {
   MDBCard,
   MDBCardBody,
   MDBInput,
-  MDBIcon,
   MDBCheckbox,
   MDBTabs,
   MDBTabsItem,

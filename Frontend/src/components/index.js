@@ -1,9 +1,0 @@
-export { default as Auth } from "./Auth/Auth";
-export { default as Dashboard } from "./Dashboard/Dashboard";
-export { default as CommunityQuizzes } from "./CommunityQuizzes/CommunityQuizzes";
-export { default as CreateQuiz } from "./CreateQuiz/CreateQuiz";
-export { default as MyQuizzes } from "./MyQuizzes/MyQuizzes";
-export { default as Profile } from "./Profile/Profile";
-export { default as TakeQuiz } from "./TakeQuiz/TakeQuiz";
-export { default as ViewQuiz } from "./ViewQuiz/ViewQuiz";
-export { default as ViewResults } from "./ViewResults/ViewResults";

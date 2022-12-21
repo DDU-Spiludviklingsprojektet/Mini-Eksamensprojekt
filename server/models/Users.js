@@ -23,6 +23,10 @@ const UserSchema = new Schema({
         type: Array,
         default: []
     },
+    admin: {
+        type: Boolean,
+        default: false
+    },
     createdAt: {
         type: Date,
         default: new Date()

@@ -4,9 +4,6 @@ import Sidebar from '../Sidebar/Sidebar';
 
 export default class Dashboard extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount() {
         if (!localStorage.getItem('JWT_PAYLOAD')) {
@@ -23,10 +20,10 @@ export default class Dashboard extends React.Component {
                 <div className="main">
                     <div className="top">
                         <div className="left">
-                            <div className="header">Statistics</div>
+                            <div className="header">Statistik</div>
                         </div>
                         <div className="right">
-                            <div className="header">My Quizzes</div>
+                            <div className="header">Mine quizzes</div>
                         </div>
                     </div>
 

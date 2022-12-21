@@ -10,9 +10,9 @@ export default class CreateQuiz extends React.Component {
    constructor(props) {
        super(props);
        this.state = {
-           categories: ['Math', 'Science', 'Technology', 'Sports', 'History', 'Misc'],
-           categoryVal: 'Math',
-           mustBeSignedIn: false,
+           categories: ['Matematik', 'Fysik', 'Kemi', 'Teknologi', 'Dansk', 'Misc'],
+           categoryVal: 'Matematik',
+           mustBeSignedIn: true,
            questions: [],
            name: '',
            addQuestion: false,
@@ -26,7 +26,7 @@ export default class CreateQuiz extends React.Component {
    }
 
    componentDidMount() {
-        if (!localStorage.getItem('JWT_PAYLOAD')) {
+        if (!localStorage.getItem('JWT_PAYLOAD') || localStorage.getItem('ADMIN') === 'false') {
             this.props.history.push('/');
         }
     }
@@ -120,50 +120,46 @@ export default class CreateQuiz extends React.Component {
                </div>
 
                <div className="main">
-                   <div className="header">Create Quiz</div>
+                   <div className="header">Lav en quiz</div>
                    <div className="form card">
-                       <input className="input" onChange={e => this.setState({name: e.target.value})} value={this.state.name} placeholder="Quiz Name" />
+                       <input className="input" onChange={e => this.setState({name: e.target.value})} value={this.state.name} placeholder="Quiz navn" />
                        <br></br>
-                       <input className="input" onChange={e => this.setState({imgUrl: e.target.value})} value={this.state.imgUrl} placeholder="Img url" />
+                       <input className="input" onChange={e => this.setState({imgUrl: e.target.value})} value={this.state.imgUrl} placeholder="URL til billede" />
                        <br></br>
-                       <select value={this.state.categoryVal} onChange={e => this.setState({categoryVal: e.target.value})} className="input select" placeholder="Category">
+                       <select value={this.state.categoryVal} onChange={e => this.setState({categoryVal: e.target.value})} className="input select" placeholder="Katagori">
                            {this.state.categories.map((cat, idx) => (
                                <option key={idx} value={cat}>{cat}</option>
                            ))}
                        </select>
-                       <div className="checkbox">
-                           <span>Must be logged in to take</span>
-                           <input checked={this.state.mustBeSignedIn} onChange={this.selectPrivate} type="checkbox" placeholder="Must be logged in to take" />
-                       </div>
 
                        {this.state.questions.map((ques, idx) => (
                            <div className="question" key={idx}>
                                <div>{ques.questionName}</div>
-                               <div>Correct Answer: {ques.correctAnswer}</div>
-                               <div>Num of answers: {ques.answers.length}</div>
-                               <span className="btn delete" onClick={() => this.removeQuestion(ques)}>Delete</span>
+                               <div>Rigtigt svar: {ques.correctAnswer}</div>
+                               <div>Antal spørgsmål: {ques.answers.length}</div>
+                               <span className="btn delete" onClick={() => this.removeQuestion(ques)}>Slet</span>
                            </div>
                        ))}
 
                        <div className="questions">
-                           <div className="add-question" onClick={() => this.setState({addQuestion: true})}>Add Question</div>
+                           <div className="add-question" onClick={() => this.setState({addQuestion: true})}>Tilføj spørgsmål</div>
                        </div>
 
-                       <span onClick={() => this.saveQuiz()} className="btn save-quiz">Save Quiz</span>
+                       <span onClick={() => this.saveQuiz()} className="btn save-quiz">Gem quiz</span>
 
                        <Dialog model={this.state.addQuestion}>
                            <div className="new-question-form">
-                                   <input className="input" placeholder="Question" value={this.state.questionName} onChange={e => this.setState({questionName: e.target.value})} />
-                                   <div>Answers</div>
+                                   <input className="input" placeholder="Spørgsmål" value={this.state.questionName} onChange={e => this.setState({questionName: e.target.value})} />
+                                   <div>Svar</div>
                                    {this.state.answers.map((ans, idx) => (
                                        <div className="answer-form" key={idx}>
-                                           <input type="radio" value={this.state.ans} onChange={e => this.setState({correctAnswer: ans})} name="answer"/> <input className="input" type="text" placeholder="Answer" value={this.state.answers[idx]} onChange={e => this.updateAnswer(e, idx)}/>
+                                           <input type="radio" value={this.state.ans} onChange={e => this.setState({correctAnswer: ans})} name="answer"/> <input className="input" type="text" placeholder="Svar" value={this.state.answers[idx]} onChange={e => this.updateAnswer(e, idx)}/>
                                        </div>   
                                    ))}
-                                   <div className="add-answer" onClick={this.addAnswer}>Add Answer</div>
+                                   <div className="add-answer" onClick={this.addAnswer}>Tilføj svar</div>
                                    <div className="btn-wrapper">
-                                       <div className="btn" onClick={() => this.setState({addQuestion: false})}>Close</div>
-                                       <div className="btn" onClick={this.saveQuestion}>Save</div>
+                                       <div className="btn" onClick={() => this.setState({addQuestion: false})}>Luk</div>
+                                       <div className="btn" onClick={this.saveQuestion}>Gem</div>
                                    </div>
                            </div>
                        </Dialog>

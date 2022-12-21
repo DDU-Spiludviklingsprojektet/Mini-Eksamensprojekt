@@ -5,11 +5,12 @@ import Auth from './components/Auth/Auth';
 import Dashboard from './components/Dashboard/Dashboard';
 import CreateQuiz from './components/CreateQuiz/CreateQuiz';
 import MyQuizzes from './components/MyQuizzes/MyQuizzes';
-//import CommunityQuizzes from './components/CommunityQuizzes/CommunityQuizzes';
-//import ViewQuiz from './components/ViewQuiz/ViewQuiz';
-//import TakeQuiz from './components/TakeQuiz/TakeQuiz';
-//import ViewResults from './components/ViewResults/ViewResults';
-//import Profile from './components/Profile/Profile';
+import CommunityQuizzes from './components/CommunityQuizzes/CommunityQuizzes';
+import ViewQuiz from './components/ViewQuiz/ViewQuiz';
+import TakeQuiz from './components/TakeQuiz/TakeQuiz';
+import ViewResults from './components/ViewResults/ViewResults';
+import Profile from './components/Profile/Profile';
+import SignOut from './components/SignOut/SignOut';
 
 import store from './store';
 
@@ -38,6 +39,12 @@ class App extends React.Component {
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/create-quiz" component={CreateQuiz} />
             <Route path="/my-quizzes" component={MyQuizzes} />
+            <Route path="/community-quizzes" component={CommunityQuizzes} />
+            <Route path="/view-quiz" component={ViewQuiz} />
+            <Route path="/take-quiz" component={TakeQuiz} />
+            <Route path="/view-results" component={ViewResults} />
+            <Route path="/account" component={Profile} />
+            <Route path="/sign-out" component={SignOut} />
             <Route path="*">
               <Redirect to="/" />
             </Route>
